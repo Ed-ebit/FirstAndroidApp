@@ -1,50 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main">
-    <Button
-        android:text="Increment"
+    >
+    <TextView
+        android:text="Text"
+        android:textSize="70"
+        android:background="#ff00ff"
+        android:layout_weight="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnIncrement"
-        android:layout_below="@id/seekBar1" />
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar1"
-        android:layout_marginBottom="0.0dp"
-        android:layout_marginRight="0.0dp"
-        android:layout_toRightOf="@id/btnDecrement"
-        android:layout_below="@id/btnDecrement" />
-    <Button
-        android:text="Decrement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnDecrement"
-        android:layout_toRightOf="@id/btnIncrement"
-        />
+        android:layout_height="0dp"
+        android:id="@+id/textView1" />
 
     <TextView
+        android:text="Text"
+        android:textSize="70"
+        android:background="#00ffff"
+        android:layout_weight="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textAlignment="center"
-        android:text="Willkommen zum Lottogenerator!\n Erhöhen Sie Ihre Gewinnchancen mit unseren generierten Zahlen!"
-        android:id="@+id/txtNumber"
-        android:layout_above="@id/seekBar1" />
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar1"
-        android:layout_marginBottom="0.0dp"
-        android:layout_marginRight="0.0dp"
-        android:layout_toRightOf="@id/btnDecrement"
-        android:layout_below="@id/btnDecrement" />
+        android:layout_height="0dp"
+        android:id="@+id/textView1" />
 
-
-</GridLayout>
+</LinearLayout>
