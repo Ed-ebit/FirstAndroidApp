@@ -33,6 +33,21 @@ namespace FirstAndroidApp
             //txtNumber.Text = (++number).ToString();
             //FindViewById<Button>(Resource.Id.btnDecrement).Click += (o, e) =>
             //txtNumber.Text = (--number).ToString();
+            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+
+            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner1_ItemSelected);
+            var adapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.gamesNumber_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
+
+        }
+        private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 
         //public override bool OnCreateOptionsMenu(IMenu menu)
