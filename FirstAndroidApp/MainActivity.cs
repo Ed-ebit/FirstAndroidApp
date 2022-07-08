@@ -11,7 +11,7 @@ using Google.Android.Material.Snackbar;
 
 namespace FirstAndroidApp
 {
-    [Activity(/*Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar",*/ MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         TextView txtNumber;

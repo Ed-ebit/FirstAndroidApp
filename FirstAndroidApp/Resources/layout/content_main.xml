@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="3"
     >
     <TextView
-        android:text="Text"
-        android:textSize="70"
+        android:text="@string/greetings_text"
+        android:layout_columnWeight="1"
+        android:layout_columnSpan="2"
+        android:textAlignment="center"
+        android:textSize="20dp"
         android:background="#ff00ff"
-        android:layout_weight="2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
         android:id="@+id/textView1" />
+    <TextView
+        android:text="@string/gamesNumber_prompt"
+        android:id="@+id/textView2" />
+    <Spinner
+        android:prompt="@string/gamesNumber_prompt"
+        android:layout_columnWeight="1"
+        android:layout_columnSpan="2"
+        android:layout_height="40sp"
+        android:id="@+id/spinner1" />
+    <TextView
+        android:text="Text3"
+        android:textSize="70dp"
+        android:background="#00ff00"
+        android:id="@+id/textView3" />
 
     <TextView
-        android:text="Text"
-        android:textSize="70"
-        android:background="#00ffff"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:id="@+id/textView1" />
+        android:text="Text4"
+        android:textSize="70dp"
+        android:background="#aa0055"
+        android:id="@+id/textView4" />
 
-</LinearLayout>
+</GridLayout>
