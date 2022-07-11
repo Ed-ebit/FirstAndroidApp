@@ -18,4 +18,6 @@
 		<item>11</item>
 		<item>12</item>
 	</string-array>
+	<string name="btnStart">Zahlen generieren</string>
+	
 </resources>

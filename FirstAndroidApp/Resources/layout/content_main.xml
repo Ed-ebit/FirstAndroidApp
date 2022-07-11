@@ -16,26 +16,26 @@
         android:textAlignment="center"
         android:textSize="20dp"
         android:background="#ff00ff"
-        android:id="@+id/textView1" />
+        android:id="@+id/txtGreetings" />
     <TextView
         android:text="@string/gamesNumber_prompt"
-        android:id="@+id/textView2" />
+        android:id="@+id/txtSpinner" />
+
     <Spinner
         android:prompt="@string/gamesNumber_prompt"
         android:layout_columnWeight="1"
         android:layout_columnSpan="2"
-        android:layout_height="40sp"
-        android:id="@+id/spinner1" />
-    <TextView
-        android:text="Text3"
-        android:textSize="70dp"
-        android:background="#00ff00"
-        android:id="@+id/textView3" />
-
-    <TextView
-        android:text="Text4"
-        android:textSize="70dp"
-        android:background="#aa0055"
-        android:id="@+id/textView4" />
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent" />
+    <Button
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:text="@string/btnStart"
+        android:id="@+id/btnStart" />
+    <ListView 
+        android:layout_columnSpan="2"
+        android:layout_columnWeight="1"
+        android:id="@+id/lstNumber">
+        </ListView>
 
 </GridLayout>
