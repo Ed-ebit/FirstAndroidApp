@@ -19,5 +19,6 @@
 		<item>12</item>
 	</string-array>
 	<string name="btnStart">Zahlen generieren</string>
+	<string name="btnExit">Schliessen</string>
 	
 </resources>

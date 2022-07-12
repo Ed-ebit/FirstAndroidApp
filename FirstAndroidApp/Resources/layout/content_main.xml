@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
+    <GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2"
-    android:rowCount="3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:
     >
-    <TextView
-        android:text="@string/greetings_text"
-        android:layout_columnWeight="1"
-        android:layout_columnSpan="2"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:background="#ff00ff"
-        android:id="@+id/txtGreetings" />
-    <TextView
-        android:text="@string/gamesNumber_prompt"
-        android:id="@+id/txtSpinner" />
 
-    <Spinner
-        android:prompt="@string/gamesNumber_prompt"
-        android:layout_columnWeight="1"
-        android:layout_columnSpan="2"
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent" />
-    <Button
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="1"
-        android:text="@string/btnStart"
-        android:id="@+id/btnStart" />
-    <ListView 
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="1"
-        android:id="@+id/lstNumber">
-        </ListView>
+        <TextView
+            android:text="@string/greetings_text"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="2"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:background="#ff0099dd"
+            android:id="@+id/txtGreetings" />
+        <TextView
+            android:text="@string/gamesNumber_prompt"
+            android:textAlignment="center"
+            android:id="@+id/txtSpinner" />
 
-</GridLayout>
+        <Spinner
+            android:prompt="@string/gamesNumber_prompt"
+            android:textAlignment="right"
+            android:layout_columnWeight="1"
+            android:layout_columnSpan="2"
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent" />
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:text="@string/btnStart"
+            android:id="@+id/btnStart"/>
+        <ListView
+            android:textAlignment="center"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:id="@+id/lstNumber"/>
+        <Button
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:text="@string/btnExit"
+            android:id="@+id/btnExit"/>
+
+    </GridLayout>
