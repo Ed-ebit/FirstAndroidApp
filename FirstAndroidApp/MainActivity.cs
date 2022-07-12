@@ -10,6 +10,7 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using System.Collections.Generic;
 using Android.Content;
+using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 
 namespace FirstAndroidApp
 {
@@ -45,8 +46,29 @@ namespace FirstAndroidApp
             spinner.Adapter = adapter;
             //gamesNumber = spinner.SelectedItemPosition;
 
-            FindViewById<Button>(Resource.Id.btnStart).Click += (o, e) => { OnBtnStartClicked(); };
-            FindViewById<Button>(Resource.Id.btnExit).Click += (o, e) => { OnBtnResetClicked(); };
+            FindViewById<Button>(Resource.Id.btnStart).Click += (o, e) => {
+                if (games == null)
+                {
+                    OnBtnStartClicked();
+                }
+                else
+                {
+                    AlertDialog.Builder alertDiag = new AlertDialog.Builder(this);
+                    alertDiag.SetTitle("Neue Zahlen generieren");
+                    alertDiag.SetMessage("Alte Zahlen verwerfen und Neue generieren?");
+                    alertDiag.SetPositiveButton("Ja", (senderAlert, args) => {
+                        Toast.MakeText(this, "bestätigt", ToastLength.Short).Show();
+
+                        OnBtnStartClicked();
+                    });
+                    alertDiag.SetNegativeButton("Nein", (senderAlert, args) => {
+                        alertDiag.Dispose();
+                    });
+                    Dialog diag = alertDiag.Create();
+                    diag.Show();
+                }
+            };
+            FindViewById<Button>(Resource.Id.btnExit).Click += (o, e) => { OnBtnExitClicked(); };
             //lstNumber = (ListView)Game.InitializeGames(1).Count.ToString();
         }
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -63,7 +85,7 @@ namespace FirstAndroidApp
             var listAdapter = new GameListAdapter(this, games);
             lstNumber.Adapter = listAdapter;
         }
-        private void OnBtnResetClicked()
+        private void OnBtnExitClicked()
         {
             gamesNumber = 0;
             System.Diagnostics.Process.GetCurrentProcess().Kill();
