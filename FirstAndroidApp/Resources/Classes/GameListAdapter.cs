@@ -39,7 +39,8 @@ namespace FirstAndroidApp
             View view = convertView; // re-use an existing view, if one is available
             if (view == null) // otherwise create a new one
                 view = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleSpinnerItem , null);
-            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = objects[position].Count + " -- " + objects[position].LottoNumbers;
+            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = "Spiel "+objects[position].Count + " -- " + objects[position].LottoNumbers;
+            //alternating Background?
             return view;
         }
     }
