@@ -42,35 +42,16 @@ namespace FirstAndroidApp
             var adapter = ArrayAdapter.CreateFromResource(
                     this, Resource.Array.gamesNumber_array, Android.Resource.Layout.SimpleSelectableListItem );
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleListItem1);
             spinner.Adapter = adapter;
             //gamesNumber = spinner.SelectedItemPosition;
 
-            FindViewById<Button>(Resource.Id.btnStart).Click += (o, e) => {
-                if (games == null)
-                {
-                    OnBtnStartClicked();
-                }
-                else
-                {
-                    AlertDialog.Builder alertDiag = new AlertDialog.Builder(this);
-                    alertDiag.SetTitle("Neue Zahlen generieren");
-                    alertDiag.SetMessage("Alte Zahlen verwerfen und Neue generieren?");
-                    alertDiag.SetPositiveButton("Ja", (senderAlert, args) => {
-                        Toast.MakeText(this, "bestätigt", ToastLength.Short).Show();
-
-                        OnBtnStartClicked();
-                    });
-                    alertDiag.SetNegativeButton("Nein", (senderAlert, args) => {
-                        alertDiag.Dispose();
-                    });
-                    Dialog diag = alertDiag.Create();
-                    diag.Show();
-                }
-            };
-            FindViewById<Button>(Resource.Id.btnExit).Click += (o, e) => { OnBtnExitClicked(); };
+            FindViewById<Button>(Resource.Id.btnStart).Click += (o, e) => GenerateNumbers();
+               
+            FindViewById<Button>(Resource.Id.btnExit).Click += (o, e) => OnBtnExitClicked();
             //lstNumber = (ListView)Game.InitializeGames(1).Count.ToString();
         }
+
         private void spinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
@@ -89,6 +70,32 @@ namespace FirstAndroidApp
         {
             gamesNumber = 0;
             System.Diagnostics.Process.GetCurrentProcess().Kill();
+        }
+        private void GenerateNumbers()
+        {
+            if (games == null)
+            {
+                OnBtnStartClicked();
+                return;
+            }
+            ShowRefreshAlert();
+        }
+
+        private void ShowRefreshAlert()
+        {
+            AlertDialog.Builder alertDiag = new AlertDialog.Builder(this);
+            alertDiag.SetTitle("Neue Zahlen generieren");
+            alertDiag.SetMessage("Alte Zahlen verwerfen und Neue generieren?");
+            alertDiag.SetPositiveButton("Ja", (senderAlert, args) => {
+                Toast.MakeText(this, "bestätigt", ToastLength.Short).Show();
+
+                OnBtnStartClicked();
+            });
+            alertDiag.SetNegativeButton("Nein", (senderAlert, args) => {
+                alertDiag.Dispose();
+            });
+            Dialog diag = alertDiag.Create();
+            diag.Show();
         }
 
 
