@@ -10,6 +10,7 @@ using Google.Android.Material.FloatingActionButton;
 using Google.Android.Material.Snackbar;
 using System.Collections.Generic;
 using Android.Content;
+using System.Linq;
 
 namespace FirstAndroidApp
 {
@@ -19,8 +20,8 @@ namespace FirstAndroidApp
         public int Count { get; }
         public string LottoNumbers { get; private set; }
 
-        private readonly byte[] GuteZahlen = { 45, 13, 28, 21, 20, 8, 12, 15, 46, 14, 30, 34, 37, 23, 40, 29, 35, 10, 17, 39, 44, 5, 24, 48 };
-        private readonly byte[] NormaleZahlen = { 1, 2, 3, 4, 6, 7, 9, 11, 15, 16, 17, 18, 19, 22, 25, 26, 27, 31, 32, 33, 35, 36, 38, 41, 42, 43, 47, 49 };
+        private readonly byte[] GuteZahlen = { 45, 13, 28, 21, 20, 08, 12, 15, 46, 14, 30, 34, 37, 23, 40, 29, 35, 10, 17, 39, 44, 05, 24, 48 };
+        private readonly byte[] NormaleZahlen = { 01, 02, 03, 04, 06, 07, 09, 11, 15, 16, 17, 18, 19, 22, 25, 26, 27, 31, 32, 33, 35, 36, 38, 41, 42, 43, 47, 49 };
 
         public Game(int count)
         {
@@ -37,6 +38,12 @@ namespace FirstAndroidApp
             HashSet<byte> combinedNumbers = goodNumbers;
             combinedNumbers.UnionWith(normalNumbers);
 
+            combinedNumbers = combinedNumbers.OrderBy(v => v).ToHashSet();
+            foreach(var number in combinedNumbers)
+            {
+                number.ToString("D2");
+                //string.Format("{00:}", number);
+            }
             return string.Join(" | ", combinedNumbers);
         }
         private HashSet<byte> NumberSelector(byte[] array, byte desiredNumbers)
